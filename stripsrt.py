@@ -3,7 +3,9 @@ import argparse
 import re
 
 """
-Removes line b
+Removes use less lines from the .stl text files and reforms sentences. 
+This saves time in taking notes as you can focus on adding snap shots and your 
+interpretation while saving the exact english used by the presenter
 """
 
 
