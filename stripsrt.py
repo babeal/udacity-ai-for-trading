@@ -8,6 +8,8 @@ This saves time in taking notes as you can focus on adding snap shots and your
 interpretation while saving the exact english used by the presenter
 """
 
+current_dir = os.path.dirname(os.path.realpath(__file__))
+
 
 def is_useless_line(line):
     if line == "":
@@ -19,29 +21,37 @@ def is_useless_line(line):
     return False
 
 
-def transform(file):
-    if not os.path.exists(file):
-        print(f"{file} not found")
+def transform(folder):
+    if not os.path.exists(folder):
+        print(f"{folder} not found")
         return
 
-    with open(file, "r") as file_contents:
-        lines = file_contents.readlines()
-        output_line = ""
-        for line in lines:
-            line = line.rstrip().lstrip()
-            if is_useless_line(line):
-                continue
-            output_line = f"{output_line} {line}"
-            if output_line[-1] in ["?", "."]:
-                print(output_line)
+    for file in os.listdir(folder):
+        _, file_extension = os.path.splitext(file)
+        if file_extension != ".srt":
+            continue
+        file_path = os.path.join(folder, file)
+        print(f"Opening {file_path}")
+        with open(os.path.join(folder, file), "r") as file_contents:
+            with open(os.path.join(current_dir, "temp", file), "w") as writer:
+                lines = file_contents.readlines()
                 output_line = ""
+                for line in lines:
+                    line = line.rstrip().lstrip()
+                    if is_useless_line(line):
+                        continue
+                    output_line = f"{output_line} {line}"
+                    if output_line[-1] in ["?", "."]:
+                        writer.write(output_line.lstrip() + "\n")
+                        # print(output_line.lstrip())
+                        output_line = ""
 
 
 def main():
     parser = argparse.ArgumentParser(description="Convert srt files to text for note taking")
-    parser.add_argument("file", metavar="N", type=str, help="file path")
+    parser.add_argument("folder", metavar="N", type=str, help="file path")
     args = parser.parse_args()
-    transform(args.file)
+    transform(args.folder)
 
 
 if __name__ == "__main__":
