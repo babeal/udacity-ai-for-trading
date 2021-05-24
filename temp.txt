@@ -1,0 +1,20 @@
+In this lesson, we'll learn about two properties of financial assets, mean reversion, and co-integration.
+Based on these properties, we will learn about the trading strategy called, Paris trading.
+From there, we will examine the more general strategy called, mean reversion trading.
+First, let's preview some concepts.
+What is mean reversion?
+A mean reverting time series is one that tends to move back and forth around some constant value.
+When applying mean reversion to a single stock, we could check when the stock price deviates significantly from the mean.
+For example, we may see a stock decline significantly below its historical average.
+Assuming the stock will revert to its mean, we may buy the stock and anticipate that it will increase back to its original price.
+There is still the risk that the stock price does not return to its historical mean.
+For example, the stock may settle at its new, lower value.
+Even worse, it might just keep declining.
+In practice it's more common to apply mean reversion to a pair of stocks.
+Let's imagine that two companies are economically linked.
+By economically linked, I mean that they may be in the same line of business, may be operating in the same country, and may have similar types of products or customers.
+We can imagine that the stock prices of these two companies may also move up and down in a similar way.
+Since these companies move up together and down together, they appear to have a consistent relationship that we can expect will continue into the near future.
+So, when we see the prices of these two similar companies diverge significantly, we may make trading decisions based on the assumption that this divergence is temporary.
+The view of our trading strategy is that later in the future, the prices will settle back to their original relationship.
+We'll examine these concepts in more detail in the rest of this lesson.
